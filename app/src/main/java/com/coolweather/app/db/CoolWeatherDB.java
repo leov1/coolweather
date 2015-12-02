@@ -19,7 +19,7 @@ public class CoolWeatherDB {
 	// database Name
 	public static final String DB_NAME = "cool_weather";
 	//database VersionCode
-	public static final int VERSION =1;
+	public static final int VERSION =2;
 
 	private static CoolWeatherDB coolWeatherDB;
 	private SQLiteDatabase db;

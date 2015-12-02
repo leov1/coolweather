@@ -2,6 +2,7 @@ package com.coolweather.app.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -67,6 +68,12 @@ public class ChooseAreaActivity extends Activity {
 				} else if (currentLevel == LEVEL_CITY) {
 					selectedCity = cityList.get(position);
 					queryCountries();
+				}else{
+					Intent intent  = new Intent(ChooseAreaActivity.this,WeatherActivity.class);
+					Bundle bundle = new Bundle();
+					bundle.putSerializable("country",countryList.get(position));
+					intent.putExtras(bundle);
+					startActivity(intent);
 				}
 			}
 		});

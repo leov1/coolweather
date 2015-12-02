@@ -1,9 +1,11 @@
 package com.coolweather.app.model;
 
+import java.io.Serializable;
+
 /**
  * Created by d on 2015/12/2.
  */
-public class Country {
+public class Country  implements Serializable{
 	private int id;
 	private String countryName;
 	private String countryCode;
