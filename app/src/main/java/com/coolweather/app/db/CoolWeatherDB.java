@@ -19,7 +19,7 @@ public class CoolWeatherDB {
 	// database Name
 	public static final String DB_NAME = "cool_weather";
 	//database VersionCode
-	public static final int VERSION = 1;
+	public static final int VERSION =1;
 
 	private static CoolWeatherDB coolWeatherDB;
 	private SQLiteDatabase db;
@@ -98,7 +98,7 @@ public class CoolWeatherDB {
 	}
 
 	public List<Country> loadCountries(int cityId) {
-		List<Country> countries = new ArrayList<>();
+		List<Country> list = new ArrayList<>();
 		Cursor cursor = db.query("Country", null, "city_id=?", new String[]{String.valueOf(cityId)}, null, null, null);
 		if (cursor.moveToFirst()) {
 			do {
@@ -107,9 +107,10 @@ public class CoolWeatherDB {
 				country.setCountryName(cursor.getString(cursor.getColumnIndex("country_name")));
 				country.setCountryCode(cursor.getString(cursor.getColumnIndex("country_code")));
 				country.setCityId(cityId);
+				list.add(country);
 			} while (cursor.moveToNext());
 		}
-		return countries;
+		return list;
 	}
 
 }
